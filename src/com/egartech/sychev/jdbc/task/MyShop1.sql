@@ -106,7 +106,79 @@ CREATE TABLE `m2m_product_basket`
 
 ;
 
+INSERT INTO `permission` (`p_permission_id`, `p_permission_name`)
+VALUES
+(1, 'editor'),
+(2, 'reading');
 
+
+INSERT INTO `user` (`u_user_id`, `u_user_login`, `u_user_password`)
+VALUES
+(1, 'JecEA',' 45gh34j'),
+(2, 'PetrovS',' fjgk450'),
+(3, 'Semcov93','594kjf324'),
+(4, 'login','590324'),
+(5, 'ivanov32','346213');
+
+
+
+INSERT INTO `role` (`r_role_id`,`r_role_name`, `p_permission_id`, `u_user_id`)
+VALUES
+(1, 'admin' ,1, 1),
+(2, 'admin' ,1 , 2),
+(3, 'user'  ,2, 3),
+(4, 'user'  ,2 ,4),
+(5, 'user' ,2 , 5);
+
+
+
+INSERT INTO `deliverytype` (`d_deliverytype_id`, `d_deliverytype_name`)
+VALUES
+(1, 'pickup'),
+(2, 'home_delivery');
+
+INSERT INTO `basket` (`b_basket_id`, `u_user_id`)
+VALUES
+(1, 1),
+(2, 2);
+
+INSERT INTO `order` (`o_order_id`, `u_user_id`, `d_deliverytype_id`, `p_price_product`, `o_quantity`, `o_order_date`)
+VALUES
+(1,1,1, 14,  14,'2019-01-12'),
+(2,2,2 , 51, 14, '2019-04-12'),
+(3,3,1, 15, 14,'2018-01-12'),
+(4,4,2 , 34, 14,'2019-02-12'),
+(5,5,2 , 24, 14,'2017-01-12'),
+(6,2,1 , 25, 14,'2019-03-12');
+
+
+
+INSERT INTO `product` (`p_product_id`, `p_product_name`, `p_price_product`)
+VALUES
+(1, 'Телефон', 32),
+(2, 'Пылесос ', 56),
+(3, 'Газовая плита', 64),
+(4, 'Кухонный комбайн', 15),
+(5, 'Вытяжка кухонная',10);
+
+INSERT INTO `m2m_product_order` (`m2m_product_order_id`,`p_product_id`,`o_order_id`)
+VALUES
+(1,1, 1),
+(2,2, 2),
+(3,3, 3),
+(4,4, 4),
+(5,5, 5),
+(6,5, 6);
+
+
+INSERT INTO `m2m_product_basket` (`m2m_product_basket_id`,`p_product_id`,`b_basket_id`)
+VALUES
+(1,1, 1),
+(2,2, 1),
+(3,3, 2),
+(4,4, 2),
+(5,5, 2),
+(6,1, 2);
 
 
 
